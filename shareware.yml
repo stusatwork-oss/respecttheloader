@@ -1,0 +1,39 @@
+# Legacy manifest for GLITCHDEX MALL canonical builds
+# Placeholder paths/entries retained for documentation of loader expectations.
+versions:
+  v1-doofenstein:
+    path: archive/v1-doofenstein
+    entry: bin/launch.sh
+    role: original-game
+    protected: true
+    placeholder: true
+  v2-immersive-sim:
+    path: archive/v2-immersive-sim
+    entry: bin/launch.sh
+    role: immersive-sim
+    protected: true
+    placeholder: true
+  v3-eastland:
+    path: archive/v3-eastland
+    entry: bin/launch.sh
+    role: graphical-engine
+    protected: true
+    placeholder: true
+  v4-renderist:
+    path: archive/v4-renderist
+    entry: bin/launch.sh
+    role: cloud-world
+    protected: true
+    placeholder: true
+  v5-eastland:
+    path: archive/v5-eastland
+    entry: docs/index.md
+    role: documentation
+    protected: true
+    placeholder: true
+  v6-nextgen:
+    path: archive/v6-nextgen
+    entry: TODO
+    role: future-build
+    protected: false
+    placeholder: true
