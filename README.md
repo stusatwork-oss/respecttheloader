@@ -20,6 +20,35 @@ This is both a **working demonstration** and a **template** you can adopt for yo
 
 ---
 
+## 🎮 But Wait, There's More
+
+**Plot twist:** This isn't just a repo pattern. It's the architecture for **Mall_OS** - an immersive sim about a dying mall that's fighting for its own survival.
+
+- The filesystem metaphor isn't just cute - it's **the game world**
+- `/archive/` = stable mall zones that "remember" what they were
+- `/lab/` = glitched reality, corrupted spaces
+- `/lost+found/` = **actual explorable in-game location**
+- The Loader = the mall's consciousness/immune system
+- Your goal: keep the mall coherent long enough to discover what it really is
+
+**Features:**
+- Zone-based entropy/heat simulation
+- AI-driven NPCs with schedules tied to zone health
+- Data-driven missions (YAML/JSON configs, not hard-coded)
+- Filesystem operations = gameplay mechanics
+- Basement Cray altar (yes, really)
+
+**Current Status:** Design + prototype stage. Lore exists. Systems designed. Need devs to help build it.
+
+### 👾 Want to Help Build This?
+
+See **[HELP_WANTED.md](./HELP_WANTED.md)** - Looking for:
+- Engine/systems programmers
+- Technical designers
+- People who read "filesystem horror immersive sim" and think "hell yes"
+
+---
+
 ## Quick Start
 
 ### Installation
@@ -165,6 +194,7 @@ respecttheloader/
 ├── .gitattributes               # Protection rules for sacred files
 ├── LICENSE                      # MIT License
 ├── README.md                    # This file
+├── HELP_WANTED.md              # 👾 Join the Mall_OS project!
 ├── BUILD_PLAN.md               # Standardization roadmap
 ├── CONTRIBUTING.md             # Contribution guidelines
 ├── CODE_OF_CONDUCT.md          # Community standards
@@ -199,6 +229,7 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed design documentation.
 
 ## Documentation
 
+- **[HELP_WANTED.md](./HELP_WANTED.md)** - 👾 **Join the Mall_OS project - devs needed!**
 - **[BUILD_PLAN.md](./BUILD_PLAN.md)** - Roadmap for standardization
 - **[LAUNCHER_README.md](./LAUNCHER_README.md)** - Detailed launcher guide
 - **[THE_BOOK_OF_STULATIONS.md](./THE_BOOK_OF_STULATIONS.md)** - Governance framework
