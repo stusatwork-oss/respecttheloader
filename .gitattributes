@@ -1,2 +1,76 @@
-# Auto detect text files and perform LF normalization
+###############################################################################
+# 📜 THE BOOK OF STULATIONS — APPENDIX A: .gitattributes
+# This file enforces canonical formatting rules across all timelines.
+# For where there is inconsistency, there shall be Merge Conflict.
+# And Merge Conflict is the path to suffering.
+###############################################################################
+
+# ---------------------------------------------------------------------------
+# 🧹 Universal Rule: Normalize text endings
+# Let all text files walk in LF, as the ancestors intended.
+# ---------------------------------------------------------------------------
 * text=auto
+
+# ---------------------------------------------------------------------------
+# 📄 Canonical text types
+# These shall always be treated as text, though they protest.
+# ---------------------------------------------------------------------------
+*.py     text
+*.md     text
+*.json   text
+*.yml    text
+*.yaml   text
+*.toml   text
+*.txt    text
+
+# ---------------------------------------------------------------------------
+# 🗃️ Binary Asset Decree
+# Thou shalt not attempt to normalize these.
+# They are binary, sacred, and prone to corruption.
+# ---------------------------------------------------------------------------
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.bmp    binary
+
+# ---------------------------------------------------------------------------
+# 🛠️ Shell Script Edict (Optional, but wise)
+# Bash scripts must obey Linux carriage laws.
+# Windows shall not interfere with their endings.
+# ---------------------------------------------------------------------------
+*.sh     text eol=lf
+
+# ---------------------------------------------------------------------------
+# 📜 Sacred Text Protection
+# These files contain law, lore, and Loader gospel.
+# They must never be altered by invisible whitespace demons.
+#
+# The '-' prefix forbids Git from normalizing or altering their contents.
+# They remain EXACTLY as the prophet Stu wrote them.
+# ---------------------------------------------------------------------------
+BOOK_OF_STULATIONS.md  -text
+shareware.yml          -text
+
+# ---------------------------------------------------------------------------
+# 🏛️ Archive Preservation Rule
+# Anything inside /archive/ is historical. Immutable. Fossilized.
+# Git shall treat these files gently and with reverence.
+# ---------------------------------------------------------------------------
+/archive/** -text
+
+# ---------------------------------------------------------------------------
+# 🧪 Lab Zone
+# Files created inside /lab/ obey no laws.
+# They are chaos. They are entropy. They are change.
+# No special rules needed; the Loader watches but does not judge.
+# ---------------------------------------------------------------------------
+
+###############################################################################
+# Here endeth the .gitattributes.
+# May your commits be clean, your merges unconflicted,
+# and may all who enter respect the Loader.
+###############################################################################
+
+
