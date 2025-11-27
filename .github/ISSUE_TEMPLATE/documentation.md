@@ -1,9 +1,10 @@
 ---
 name: Documentation Issue
 about: Report missing, incorrect, or unclear documentation
-title: '[DOCS] '
+title: "[DOCS] "
 labels: documentation
 assignees: ''
+
 ---
 
 ## Documentation Issue Type
