@@ -26,7 +26,9 @@ Security vulnerabilities should **not** be reported through public GitHub issues
 Report security vulnerabilities by:
 
 - **GitHub Security Advisories**: Use the "Security" tab on the GitHub repository
-- **Direct Contact**: Email the project maintainers (see GitHub profile for contact info)
+- **Email Contact**: security@example.com
+  - ⚠️ **MAINTAINERS**: Replace this placeholder with a monitored email address
+  - This is a placeholder and should be updated to a real, monitored contact
 
 ### 3. Include Details
 
