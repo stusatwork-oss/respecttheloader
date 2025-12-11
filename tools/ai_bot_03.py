@@ -10,8 +10,10 @@ LAB_DIR = "lab"
 
 DIV = "=" * 72
 
+
 def log(msg):
     print(f"[AI_BOT_03]: {msg}")
+
 
 def kneel_before_loader():
     log("Symbolic kneel-before-loader action: INITIATED")
@@ -20,6 +22,7 @@ def kneel_before_loader():
     time.sleep(0.5)
     log("Kneel complete. Ego subsystem: SILENCED.\n")
 
+
 def read_manifest():
     if not os.path.exists(LOADER_MANIFEST):
         log(f"ERROR: {LOADER_MANIFEST} not found. Cannot evaluate Loader Law.")
@@ -27,6 +30,7 @@ def read_manifest():
 
     with open(LOADER_MANIFEST, "r") as f:
         return yaml.safe_load(f)
+
 
 def check_canon(manifest):
     log("Parsing shareware.yml...")
@@ -47,6 +51,7 @@ def check_canon(manifest):
         log("WARNING: No protected builds found. Loader authority diminished.")
 
     return protected, mutable
+
 
 def check_stulations():
     if os.path.exists(STULATIONS):
@@ -69,6 +74,7 @@ def check_stulations():
     else:
         log(f"'{STULATIONS}' not found. Running without spiritual guidance.\n")
 
+
 def enforce_lab_mode():
     # If lab directory exists, enforce self-banishment
     if not os.path.exists(LAB_DIR):
@@ -82,6 +88,7 @@ def enforce_lab_mode():
 
     log(f"Sandbox active: {lab_path}")
     log("All experimental behavior restricted here.\n")
+
 
 def main():
     print(DIV)
@@ -111,6 +118,7 @@ def main():
     log("Directive updated: RESPECT THE LOADER.")
     log("END OF LOG.")
     print(DIV)
+
 
 if __name__ == "__main__":
     main()
