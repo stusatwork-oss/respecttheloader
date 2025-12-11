@@ -293,9 +293,9 @@ Inspired by the shareware era of 1995-1998 and the need for clear artifact manag
 
 ## Status
 
-This repository is under active standardization. See [BUILD_PLAN.md](./BUILD_PLAN.md) for progress.
+**Current Version**: 1.0.0
 
-**Current Version**: 0.9.0 (Pre-release)
+See [BUILD_PLAN.md](./BUILD_PLAN.md) for roadmap and [CHANGELOG.md](./CHANGELOG.md) for release history.
 
 ---
 
