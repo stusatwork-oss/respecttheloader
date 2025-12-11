@@ -17,14 +17,30 @@ class SharewareGeneratorV2:
 
     def _generate_programs(self):
         """Generate 500 programs with programs #387-391 being GLITCHDEX MALL versions"""
-        programs = []
-
         # Templates for realistic shareware names
         genres = {
-            "solitaire": ["SOLITAIRE", "FREECELL", "SPIDER SOLITAIRE", "PYRAMID", "KLONDIKE"],
-            "screensaver": ["SCREENSAVER", "STARFIELD", "FLYING TOASTER", "MATRIX", "FLYING LOGO"],
+            "solitaire": [
+                "SOLITAIRE",
+                "FREECELL",
+                "SPIDER SOLITAIRE",
+                "PYRAMID",
+                "KLONDIKE",
+            ],
+            "screensaver": [
+                "SCREENSAVER",
+                "STARFIELD",
+                "FLYING TOASTER",
+                "MATRIX",
+                "FLYING LOGO",
+            ],
             "compression": ["PKZIP", "ARJSFX", "WINZIP", "LHARC", "STUFFIT"],
-            "utility": ["UNINSTALL", "DISK DOCTOR", "DEFRAG", "CACHE CLEANER", "OPTIMIZER"],
+            "utility": [
+                "UNINSTALL",
+                "DISK DOCTOR",
+                "DEFRAG",
+                "CACHE CLEANER",
+                "OPTIMIZER",
+            ],
             "editor": ["NOTEPAD PRO", "TEXTVIEW", "EDITOR PLUS", "WORDPAD", "RICHTEXT"],
             "graphics": ["PAINT", "IMAGEVUE", "VIEWER PRO", "THUMBNAILER", "CONVERTER"],
             "sound": ["WINAMP", "MEDIA PLAYER", "WAVEFORM", "CONVERTER", "MIXER"],
@@ -35,9 +51,29 @@ class SharewareGeneratorV2:
             "system": ["MONITOR", "BENCHMARK", "INFO", "ANALYZER", "CHECKER"],
         }
 
-        versions = ["1.0", "1.1", "2.0", "3.2", "4.5", "5.0", "LITE", "PRO", "DELUXE", ""]
+        versions = [
+            "1.0",
+            "1.1",
+            "2.0",
+            "3.2",
+            "4.5",
+            "5.0",
+            "LITE",
+            "PRO",
+            "DELUXE",
+            "",
+        ]
 
-        adjectives = ["ULTRA", "MEGA", "SUPER", "EXTREME", "POWER", "TURBO", "CHAOS", "ULTIMATE"]
+        adjectives = [
+            "ULTRA",
+            "MEGA",
+            "SUPER",
+            "EXTREME",
+            "POWER",
+            "TURBO",
+            "CHAOS",
+            "ULTIMATE",
+        ]
 
         programs_list = []
 
@@ -45,70 +81,82 @@ class SharewareGeneratorV2:
         for i in range(1, 501):
             if i == 387:
                 # V1: Original retro game
-                programs_list.append({
-                    "number": i,
-                    "name": "GLITCHDEX MALL - Original",
-                    "genre": "game",
-                    "version": "1.0",
-                    "executable": "v1",
-                    "is_real": True,
-                    "description": "Original Wolf3D-style retro mall crawler"
-                })
+                programs_list.append(
+                    {
+                        "number": i,
+                        "name": "GLITCHDEX MALL - Original",
+                        "genre": "game",
+                        "version": "1.0",
+                        "executable": "v1",
+                        "is_real": True,
+                        "description": "Original Wolf3D-style retro mall crawler",
+                    }
+                )
             elif i == 388:
                 # V2: Immersive sim
-                programs_list.append({
-                    "number": i,
-                    "name": "GLITCHDEX MALL - Immersive Sim",
-                    "genre": "game",
-                    "version": "2.0",
-                    "executable": "v2",
-                    "is_real": True,
-                    "description": "Advanced AI architecture with factions & stealth"
-                })
+                programs_list.append(
+                    {
+                        "number": i,
+                        "name": "GLITCHDEX MALL - Immersive Sim",
+                        "genre": "game",
+                        "version": "2.0",
+                        "executable": "v2",
+                        "is_real": True,
+                        "description": "Advanced AI with factions & stealth",
+                    }
+                )
             elif i == 389:
                 # V3: Eastland Mall - Full graphical with AI
-                programs_list.append({
-                    "number": i,
-                    "name": "EASTLAND MALL - Graphical Engine",
-                    "genre": "game",
-                    "version": "3.0",
-                    "executable": "v3",
-                    "is_real": True,
-                    "description": "Pygame raycaster with all V2 systems"
-                })
+                programs_list.append(
+                    {
+                        "number": i,
+                        "name": "EASTLAND MALL - Graphical Engine",
+                        "genre": "game",
+                        "version": "3.0",
+                        "executable": "v3",
+                        "is_real": True,
+                        "description": "Pygame raycaster with all V2 systems",
+                    }
+                )
             elif i == 390:
                 # V4: Renderist Mall OS - Cloud-driven world
-                programs_list.append({
-                    "number": i,
-                    "name": "RENDERIST MALL OS - Cloud World",
-                    "genre": "game",
-                    "version": "4.0",
-                    "executable": "v4",
-                    "is_real": True,
-                    "description": "Cloud-driven semantic space architecture"
-                })
+                programs_list.append(
+                    {
+                        "number": i,
+                        "name": "RENDERIST MALL OS - Cloud World",
+                        "genre": "game",
+                        "version": "4.0",
+                        "executable": "v4",
+                        "is_real": True,
+                        "description": "Cloud-driven semantic space architecture",
+                    }
+                )
             elif i == 391:
                 # V5: Eastland CRD Reconstruction
-                programs_list.append({
-                    "number": i,
-                    "name": "EASTLAND MALL - CRD Reconstruction",
-                    "genre": "documentation",
-                    "version": "5.0",
-                    "executable": "v5",
-                    "is_real": True,
-                    "description": "Classification Reference Document methodology"
-                })
+                programs_list.append(
+                    {
+                        "number": i,
+                        "name": "EASTLAND MALL - CRD Reconstruction",
+                        "genre": "documentation",
+                        "version": "5.0",
+                        "executable": "v5",
+                        "is_real": True,
+                        "description": "Classification Reference Document methodology",
+                    }
+                )
             elif i == 392:
                 # V6: Next Generation (placeholder)
-                programs_list.append({
-                    "number": i,
-                    "name": "GLITCHDEX MALL - Next Generation",
-                    "genre": "game",
-                    "version": "6.0",
-                    "executable": "v6",
-                    "is_real": True,
-                    "description": "Future development placeholder"
-                })
+                programs_list.append(
+                    {
+                        "number": i,
+                        "name": "GLITCHDEX MALL - Next Generation",
+                        "genre": "game",
+                        "version": "6.0",
+                        "executable": "v6",
+                        "is_real": True,
+                        "description": "Future development placeholder",
+                    }
+                )
             else:
                 # Generate fake program
                 genre = random.choice(list(genres.keys()))
@@ -125,15 +173,17 @@ class SharewareGeneratorV2:
 
                 full_name = base_name + version_suffix
 
-                programs_list.append({
-                    "number": i,
-                    "name": full_name,
-                    "genre": genre,
-                    "version": random.choice(versions),
-                    "executable": f"prog_{i}.exe",
-                    "is_real": False,
-                    "description": "Not installed"
-                })
+                programs_list.append(
+                    {
+                        "number": i,
+                        "name": full_name,
+                        "genre": genre,
+                        "version": random.choice(versions),
+                        "executable": f"prog_{i}.exe",
+                        "is_real": False,
+                        "description": "Not installed",
+                    }
+                )
 
         return programs_list
 

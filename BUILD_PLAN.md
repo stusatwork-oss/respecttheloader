@@ -1,5 +1,9 @@
 # BUILD PLAN: Standardizing respecttheloader
 
+> **Repo Status:** v0.9 – Feature-complete for v1, hardening tests & tooling
+>
+> **Current Phase:** 4–5 (Code Quality & Automation)
+
 ## Mission
 Transform `respecttheloader` from a proof-of-concept demonstration into a complete, production-ready standard for GitHub repository structure.
 
@@ -32,7 +36,7 @@ This repository demonstrates a pattern for protecting "golden builds" and canoni
 
 ---
 
-## Phase 2: Directory Structure (Alignment)
+## Phase 2: Directory Structure (Alignment) ✓
 
 ### Create Missing Directories
 - [x] **/archive/** - Protected canonical builds directory
@@ -49,7 +53,7 @@ This repository demonstrates a pattern for protecting "golden builds" and canoni
 
 ---
 
-## Phase 3: Documentation Enhancement
+## Phase 3: Documentation Enhancement ✓
 
 ### Expand README.md
 - [x] Project description and purpose
@@ -67,94 +71,98 @@ This repository demonstrates a pattern for protecting "golden builds" and canoni
 
 ---
 
-## Phase 4: Code Quality
+## Phase 4: Code Quality ⧗
 
 ### Python Improvements
 - [x] Add docstrings to all functions/classes
 - [x] Type hints (Python 3.8+)
 - [x] Package structure (setup.py or pyproject.toml)
-- [ ] Testing framework setup
-  - pytest configuration
-  - Basic unit tests for ai_bot_03.py
-  - Integration tests for launcher
-- [ ] Code formatting (black, isort)
-- [ ] Linting (flake8, pylint)
-
-### Validation Scripts
-- [ ] Manifest validator (checks shareware.yml schema)
-- [ ] Protection enforcer (verifies protected files)
-- [ ] Setup verification script
+- [x] Code formatting (black, isort)
+- [x] Linting (flake8)
+- [x] Testing framework setup (pytest configuration)
+- [ ] Unit tests for ai_bot_03.py
+- [ ] Integration tests for manifest validation
 
 ---
 
-## Phase 5: Automation
+## Phase 5: Automation ⧗
 
 ### CI/CD Pipeline
 - [x] **GitHub Actions Workflows**
-  - Lint/format checks
-  - Test suite execution
-  - Build verification
-  - Release automation
+  - [x] Lint/format checks (flake8)
+  - [x] Test suite execution (pytest)
+  - [x] Multi-version Python matrix (3.8-3.11)
+  - [x] Read-only permissions (security best practice)
 
 ### Pre-commit Hooks
-- [ ] Install pre-commit framework
-- [ ] Hook: Format Python code
-- [ ] Hook: Run linters
-- [ ] Hook: Check for protected file modifications
-- [ ] Hook: Validate manifest
+- [x] Install pre-commit framework
+- [x] Hook: Format Python code (black)
+- [x] Hook: Sort imports (isort)
+- [x] Hook: Run linters (flake8)
+- [x] Hook: Validate YAML
 
 ---
 
 ## Phase 6: Versioning & Release
 
 ### Version Management
-- [x] Add VERSION file or use git tags
 - [x] Semantic versioning (MAJOR.MINOR.PATCH)
 - [x] Release notes in CHANGELOG.md
+- [ ] Add VERSION file or __version__ in tools/
 
 ### Initial Release
 - [ ] Tag v1.0.0
 - [ ] GitHub Release with assets
-- [ ] Package to PyPI (if applicable)
-- [ ] Docker image (optional)
 
 ---
 
-## Phase 7: Shareware Integration
+## Phase 7: Shareware Integration (MVP)
 
 ### Template Functionality
-- [ ] Script: `git shareware-init` command
+- [ ] Script: `shareware-init.py` command
   - Creates basic structure in new repos
-  - Copies essential files
+  - Copies essential files (shareware.yml, /archive skeleton, /lab README)
   - Initializes manifest
-- [ ] Configuration: Default templates
-- [ ] Documentation: Integration guide
-
-### Demo Content
-- [ ] Sample protected builds in /archive/
-- [ ] Example lab experiments
-- [ ] Tutorial for first-time users
 
 ---
 
-## Phase 8: Polish & Launch
+## v1.0.0 Release Checklist
 
-### Final Touches
-- [x] Spell-check all documentation
-- [x] Cross-reference all links
-- [x] Ensure consistent formatting
-- [x] Update all timestamps/dates
+Before tagging v1.0.0, ensure:
 
-### Community Prep
+- [ ] Unit test for ai_bot_03 respecting `protected: true`
+- [ ] Integration test that loads shareware.yml and validates structure
+- [ ] CI runs pytest + black --check (or flake8)
+- [ ] Pre-commit hooks configured
+- [ ] `shareware-init.py` stub exists (demonstrates the concept)
+- [ ] VERSION or __version__ tracking in place
+- [ ] All CI checks pass
+
+---
+
+## Post-1.0 Roadmap
+
+### Epic: DX Polish
+- [ ] Docker image for portable execution
+- [ ] Web-based launcher interface
+- [ ] Higher test coverage (>70%)
+- [ ] Setup verification script
+- [ ] Manifest validator tool (checks shareware.yml schema)
+- [ ] Protection enforcer tool (verifies protected files)
+
+### Epic: Shareware OS
+- [ ] Rich `git shareware-init` flow with templates
+- [ ] Sample protected builds in /archive/
+- [ ] Example lab experiments
+- [ ] Tutorial repository that uses the template
+
+### Epic: Community
 - [ ] Create discussion forum or Discord
 - [ ] Prepare announcement blog post
 - [ ] Social media assets
 - [ ] Demo video or GIFs
-
-### Distribution
 - [ ] Submit to Awesome lists (awesome-python, etc.)
 - [ ] Post on relevant forums (Reddit, Hacker News)
-- [ ] Share with developer communities
 
 ---
 
@@ -167,8 +175,8 @@ A "standard-ready" repository should have:
 - ✓ Clear license and security policy
 - ✓ Installation instructions that work
 - ✓ Example usage that demonstrates value
-- ⧗ Test coverage > 70%
-- ⧗ No broken links or dead references
+- ⧗ Test coverage for core functionality
+- ✓ No broken links or dead references
 - ✓ Consistent code style
 
 ---
@@ -183,12 +191,6 @@ A "standard-ready" repository should have:
 - Documentation freshness
 - Community engagement
 
-**Extensions**: Future additions might include:
-- Multi-language support (beyond Python)
-- Web-based launcher
-- Cloud storage integration for archives
-- Advanced protection mechanisms (GPG signing, checksums)
-
 ---
 
 ## Status Legend
@@ -196,5 +198,5 @@ A "standard-ready" repository should have:
 - ⧗ In Progress
 - [ ] Not Started
 
-**Last Updated**: 2025-11-27
-**Current Phase**: Phase 1-3 (Concurrent execution)
+**Last Updated**: 2025-12-11
+**Current Phase**: 4–5 (Code Quality & Automation)

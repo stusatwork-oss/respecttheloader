@@ -6,10 +6,10 @@ Windows 95-inspired shareware CD experience
 """
 
 import curses
-import sys
 import os
+import sys
 import time
-import subprocess
+
 from shareware_gen_v2 import SharewareGeneratorV2
 
 
@@ -40,18 +40,18 @@ class GUI_Launcher:
         curses.use_default_colors()
 
         # Classic VGA 16-color pairs (matching Windows 95 era)
-        curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_CYAN)      # Title bar
-        curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLUE)      # Window bg
-        curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLUE)     # Highlighted text
-        curses.init_pair(4, curses.COLOR_WHITE, curses.COLOR_RED)       # Selected item
-        curses.init_pair(5, curses.COLOR_BLACK, curses.COLOR_WHITE)     # Button
-        curses.init_pair(6, curses.COLOR_WHITE, curses.COLOR_BLACK)     # Button pressed
-        curses.init_pair(7, curses.COLOR_GREEN, curses.COLOR_BLUE)      # Real programs
-        curses.init_pair(8, curses.COLOR_CYAN, curses.COLOR_BLUE)       # Info text
-        curses.init_pair(9, curses.COLOR_BLACK, curses.COLOR_GREEN)     # Status bar
-        curses.init_pair(10, curses.COLOR_YELLOW, curses.COLOR_BLACK)   # Warning
-        curses.init_pair(11, curses.COLOR_RED, curses.COLOR_WHITE)      # Error
-        curses.init_pair(12, curses.COLOR_MAGENTA, curses.COLOR_BLUE)   # Special marker
+        curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_CYAN)  # Title bar
+        curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLUE)  # Window bg
+        curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLUE)  # Highlighted text
+        curses.init_pair(4, curses.COLOR_WHITE, curses.COLOR_RED)  # Selected item
+        curses.init_pair(5, curses.COLOR_BLACK, curses.COLOR_WHITE)  # Button
+        curses.init_pair(6, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Button pressed
+        curses.init_pair(7, curses.COLOR_GREEN, curses.COLOR_BLUE)  # Real programs
+        curses.init_pair(8, curses.COLOR_CYAN, curses.COLOR_BLUE)  # Info text
+        curses.init_pair(9, curses.COLOR_BLACK, curses.COLOR_GREEN)  # Status bar
+        curses.init_pair(10, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # Warning
+        curses.init_pair(11, curses.COLOR_RED, curses.COLOR_WHITE)  # Error
+        curses.init_pair(12, curses.COLOR_MAGENTA, curses.COLOR_BLUE)  # Special marker
 
     def draw_window(self, y, x, height, width, title=""):
         """Draw a 3D-style window with shadow"""
@@ -101,7 +101,9 @@ class GUI_Launcher:
         height, width = self.stdscr.getmaxyx()
 
         # Main window
-        self.draw_window(0, 0, height - 1, width - 1, "GAMEZILLA MEGA COLLECTION VOL. 4")
+        self.draw_window(
+            0, 0, height - 1, width - 1, "GAMEZILLA MEGA COLLECTION VOL. 4"
+        )
 
         # Subtitle
         self.stdscr.attron(curses.color_pair(3) | curses.A_BOLD)
@@ -134,7 +136,7 @@ class GUI_Launcher:
         for i, prog_idx in enumerate(range(start, end)):
             prog = self.programs[prog_idx]
             y = start_y + 2 + i
-            is_selected = (prog_idx == self.selected_idx)
+            is_selected = prog_idx == self.selected_idx
 
             # Selection highlight
             if is_selected:
@@ -150,7 +152,7 @@ class GUI_Launcher:
 
             # Draw item
             item_text = f"{marker} {prog['number']:3d}. {prog['name']:<45}"
-            self.stdscr.addstr(y, start_x, item_text[:width - 6])
+            self.stdscr.addstr(y, start_x, item_text[: width - 6])
 
             if is_selected:
                 self.stdscr.attroff(curses.color_pair(4) | curses.A_BOLD)
@@ -193,7 +195,9 @@ class GUI_Launcher:
         height, width = self.stdscr.getmaxyx()
 
         self.stdscr.attron(curses.color_pair(9))
-        status = " Mouse: Click to select • Keyboard: ↑↓ Navigate, ENTER Launch, Q Quit "
+        status = (
+            " Mouse: Click to select • Keyboard: ↑↓ Navigate, ENTER Launch, Q Quit "
+        )
         self.stdscr.addstr(height - 2, 0, status.ljust(width - 1))
         self.stdscr.attroff(curses.color_pair(9))
 
@@ -213,11 +217,15 @@ class GUI_Launcher:
 
         if prog["is_real"]:
             self.stdscr.attron(curses.color_pair(7) | curses.A_BOLD)
-            self.stdscr.addstr(info_y + 3, info_x, "Status: ● INSTALLED - Ready to launch!")
+            self.stdscr.addstr(
+                info_y + 3, info_x, "Status: ● INSTALLED - Ready to launch!"
+            )
             self.stdscr.attroff(curses.color_pair(7) | curses.A_BOLD)
         else:
             self.stdscr.attron(curses.color_pair(10))
-            self.stdscr.addstr(info_y + 3, info_x, "Status: Not installed (requires Disk 1 of 3)")
+            self.stdscr.addstr(
+                info_y + 3, info_x, "Status: Not installed (requires Disk 1 of 3)"
+            )
             self.stdscr.attroff(curses.color_pair(10))
 
         self.stdscr.addstr(info_y + 4, info_x, "─" * (width - 6))
@@ -352,6 +360,7 @@ class GUI_Launcher:
         except Exception as e:
             print(f"\n[ERROR] {e}")
             import traceback
+
             traceback.print_exc()
             input("Press ENTER...")
 
@@ -385,7 +394,9 @@ class GUI_Launcher:
                     print("\nPress ENTER to continue...")
                     input()
                 else:
-                    os.system(f"cd {os.path.dirname(path)} && python3 {os.path.basename(path)}")
+                    dir_path = os.path.dirname(path)
+                    script = os.path.basename(path)
+                    os.system(f"cd {dir_path} && python3 {script}")
                 return
 
         print(f"\n[ERROR] {version_dir} not found!")
@@ -406,7 +417,7 @@ class GUI_Launcher:
             try:
                 key = self.stdscr.getch()
 
-                if key == ord('q') or key == ord('Q'):
+                if key == ord("q") or key == ord("Q"):
                     self.running = False
                 elif key == curses.KEY_UP:
                     if self.selected_idx > 0:
@@ -420,18 +431,23 @@ class GUI_Launcher:
                         # Update page if needed
                         if self.selected_idx >= (self.page + 1) * self.items_per_page:
                             self.page = self.selected_idx // self.items_per_page
-                elif key == ord('\n') or key == curses.KEY_ENTER or key == 10 or key == 13:
+                elif (
+                    key == ord("\n")
+                    or key == curses.KEY_ENTER
+                    or key == 10
+                    or key == 13
+                ):
                     self.launch_program()
-                elif key == ord('n') or key == ord('N'):
+                elif key == ord("n") or key == ord("N"):
                     self.next_page()
-                elif key == ord('p') or key == ord('P'):
+                elif key == ord("p") or key == ord("P"):
                     self.prev_page()
                 elif key == curses.KEY_MOUSE:
                     try:
                         _, mouse_x, mouse_y, _, mouse_state = curses.getmouse()
                         if mouse_state & curses.BUTTON1_CLICKED:
                             self.handle_mouse(mouse_y, mouse_x)
-                    except:
+                    except curses.error:
                         pass
 
             except KeyboardInterrupt:

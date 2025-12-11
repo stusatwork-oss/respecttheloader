@@ -11,6 +11,8 @@
 
 **RespectTheLoader** is a repository structure pattern that protects "golden builds" - canonical, versioned artifacts - from accidental modification by humans or AI agents. It provides:
 
+> *This repo is also the canonical reference implementation of the RespectTheLoader pattern described in [BUILD_PLAN.md](./BUILD_PLAN.md).*
+
 - **Protected Archives**: Immutable versioned builds marked in a manifest
 - **Safe Sandboxes**: Git-ignored experimental workspaces
 - **Clear Governance**: Human-readable rules enforced by tools
